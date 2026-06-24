@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist de Arranque · SA-CT-0336-2026 · Salud S.A. × Felipe Salgado</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #0f2044;
+    --navy-light: #1a3060;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --azure: #0078d4;
+    --azure-light: #50e6ff;
+    --white: #ffffff;
+    --green: #28a745;
+    --green-light: #5dca77;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --gray: #8899aa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f4fa;
+    color: #1a2340;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    background: linear-gradient(135deg, #0a1628 0%, #0f2044 60%, #0a1628 100%);
+    padding: 48px 40px 40px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::before {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(0,120,212,0.12), transparent 60%),
+                radial-gradient(ellipse at 10% 80%, rgba(201,168,76,0.07), transparent 50%);
+  }
+  .header-inner { max-width: 960px; margin: 0 auto; position: relative; }
+  .doc-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .doc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .doc-title span { color: var(--gold); }
+  .doc-sub {
+    font-size: 0.9rem;
+    color: #8899bb;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+  .doc-meta {
+    display: flex; flex-wrap: wrap; gap: 24px;
+  }
+  .meta-item { font-size: 0.8rem; color: #667788; }
+  .meta-item strong { color: #aabbcc; font-weight: 600; display: block; margin-bottom: 2px; }
+
+  /* ── NOTICE BOX ── */
+  .notice-box {
+    background: #fff8e1;
+    border-left: 4px solid var(--orange);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 24px 0;
+    font-size: 0.84rem;
+    color: #7a4f00;
+    line-height: 1.7;
+  }
+  .notice-box strong { color: #5c3a00; }
+
+  /* ── CONTACTS STRIP ── */
+  .contacts-strip {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 16px 40px;
+  }
+  .contacts-inner { max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+  .contact-chip {
+    display: flex; flex-direction: column;
+    font-size: 0.78rem;
+  }
+  .contact-chip .role { color: #8899aa; text-transform: uppercase; font-size: 9px; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 3px; }
+  .contact-chip .name { font-weight: 700; color: #1a2340; font-size: 0.85rem; }
+  .contact-chip .email { color: var(--azure); font-size: 0.75rem; }
+  .contract-ref {
+    margin-left: auto;
+    background: #f0f7ff;
+    border: 1px solid #bdd6f5;
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-align: center;
+  }
+  .contract-ref .num { font-size: 0.88rem; font-weight: 800; color: var(--azure); }
+  .contract-ref .lbl { font-size: 9px; color: #8899aa; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ── MAIN ── */
+  .main { max-width: 960px; margin: 32px auto; padding: 0 20px; }
+
+  /* ── PROGRESS BANNER ── */
+  .progress-banner {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .progress-banner h3 { font-size: 0.9rem; font-weight: 700; color: #1a2340; margin-bottom: 4px; }
+  .progress-banner p { font-size: 0.78rem; color: #8899aa; line-height: 1.6; }
+  .progress-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px; border-radius: 20px;
+    font-size: 11px; font-weight: 700;
+  }
+  .status-pill.ok { background: #e8f8ee; color: #155724; border: 1px solid #c3e6cb; }
+  .status-pill.pending { background: #fff3cd; color: #856404; border: 1px solid #ffeaa8; }
+  .status-pill.wait { background: #f0f4ff; color: #3355aa; border: 1px solid #c5d2f0; }
+
+  /* ── SECTION ── */
+  .section-block {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .section-header.admin { background: linear-gradient(90deg, #fff8f0, #fffcf5); }
+  .section-header.azure { background: linear-gradient(90deg, #f0f7ff, #f5faff); }
+  .section-header.tech-docs { background: linear-gradient(90deg, #f5f0ff, #faf7ff); }
+  .section-header.brasil { background: linear-gradient(90deg, #f0f9ff, #f5fbff); }
+  .section-header.marketing { background: linear-gradient(90deg, #fff5f0, #fffaf7); }
+  .section-header.restrictions { background: linear-gradient(90deg, #fff0f0, #fff5f5); }
+
+  .section-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .icon-admin { background: #fff3e0; }
+  .icon-azure { background: #e3f2fd; }
+  .icon-tech { background: #f3e5f5; }
+  .icon-brasil { background: #e0f7fa; }
+  .icon-marketing { background: #fce4ec; }
+  .icon-restrict { background: #ffebee; }
+
+  .section-info { flex: 1; }
+  .section-info h3 { font-size: 1rem; font-weight: 700; color: #1a2340; margin-bottom: 2px; }
+  .section-info p { font-size: 0.78rem; color: #8899aa; }
+
+  .section-count {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #8899aa;
+  }
+  .section-count strong { display: block; font-size: 1.1rem; font-weight: 800; }
+  .section-count.urgent strong { color: var(--red); }
+  .section-count.important strong { color: var(--orange); }
+  .section-count.normal strong { color: var(--azure); }
+
+  .section-body { padding: 8px 0; }
+
+  /* ── CHECKLIST ITEMS ── */
+  .check-item {
+    padding: 14px 24px;
+    border-bottom: 1px solid #f0f4fa;
+    display: grid;
+    grid-template-columns: 20px 1fr auto;
+    gap: 14px;
+    align-items: start;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:hover { background: #f8fafc; }
+
+  .check-box {
+    width: 20px; height: 20px;
+    border: 2px solid #d0d8e8;
+    border-radius: 4px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: white;
+  }
+  .check-box:hover { border-color: var(--azure); }
+
+  .check-content h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1a2340;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+  .check-content .desc {
+    font-size: 0.78rem;
+    color: #667788;
+    line-height: 1.65;
+    margin-bottom: 6px;
+  }
+  .check-content .contract-ref-inline {
+    font-size: 0.72rem;
+    color: #8899bb;
+    font-style: italic;
+  }
+  .check-content .contract-ref-inline a { color: var(--azure); text-decoration: none; }
+
+  .check-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .tag.required { background: #ffebee; color: #c62828; border: 1px solid #ffcdd2; }
+  .tag.firma { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+  .tag.azure { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+  .tag.brasil { background: #e0f7fa; color: #00695c; border: 1px solid #b2dfdb; }
+  .tag.marketing { background: #fce4ec; color: #880e4f; border: 1px solid #f8bbd0; }
+  .tag.both { background: #f3e5f5; color: #6a1b9a; border: 1px solid #e1bee7; }
+  .tag.legal { background: #fff8e1; color: #f57f17; border: 1px solid #ffe082; }
+  .tag.optional { background: #f5f5f5; color: #616161; border: 1px solid #e0e0e0; }
+
+  .priority-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    margin-top: 5px; flex-shrink: 0;
+  }
+  .dot-red { background: var(--red); }
+  .dot-orange { background: var(--orange); }
+  .dot-blue { background: var(--azure); }
+  .dot-gray { background: #aabbcc; }
+
+  /* ── RESTRICTION ITEM ── */
+  .restrict-item {
+    padding: 12px 24px;
+    border-bottom: 1px solid #fff0f0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #fffbfb;
+  }
+  .restrict-item:last-child { border-bottom: none; }
+  .restrict-icon { color: var(--red); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+  .restrict-item h4 { font-size: 0.85rem; font-weight: 700; color: #c62828; margin-bottom: 3px; }
+  .restrict-item p { font-size: 0.78rem; color: #8899aa; line-height: 1.6; }
+
+  /* ── LEGEND ── */
+  .legend {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .legend h3 { font-size: 0.85rem; font-weight: 700; color: #1a2340; margin-bottom: 12px; }
+  .legend-items { display: flex; flex-wrap: wrap; gap: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: #667788; }
+
+  /* ── TIMELINE ── */
+  .timeline-box {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .timeline-box h3 { font-size: 0.95rem; font-weight: 700; color: #1a2340; margin-bottom: 16px; }
+  .timeline-steps { display: flex; flex-direction: column; gap: 0; }
+  .t-step {
+    display: flex; gap: 16px; padding: 12px 0;
+    border-bottom: 1px solid #f0f4fa;
+  }
+  .t-step:last-child { border-bottom: none; }
+  .t-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    font-size: 12px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .t-step h4 { font-size: 0.85rem; font-weight: 700; color: #1a2340; margin-bottom: 3px; }
+  .t-step p { font-size: 0.78rem; color: #8899aa; line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    background: var(--navy);
+    padding: 28px 40px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .doc-footer p { font-size: 0.75rem; color: #334455; line-height: 1.8; }
+  .doc-footer strong { color: #556677; }
+
+  @media print {
+    body { background: white; }
+    .check-box { print-color-adjust: exact; }
+  }
+  @media (max-width: 640px) {
+    .doc-header { padding: 32px 20px; }
+    .contacts-strip { padding: 16px 20px; }
+    .section-header { padding: 14px 16px; }
+    .check-item { grid-template-columns: 20px 1fr; padding: 12px 16px; }
+    .priority-dot { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<div class="doc-header">
+  <div class="header-inner">
+    <div class="doc-badge">📋 Gestión de Proyecto · Arranque Formal</div>
+    <h1 class="doc-title">Checklist de Accesos e<br>Información · <span>Arranque del Proyecto</span></h1>
+    <p class="doc-sub">Documento de solicitud estructurada de accesos, credenciales e información requerida para el inicio formal de los trabajos técnicos bajo el contrato SA-CT-0336-2026.<br>Basado estrictamente en el alcance del contrato y principio de mínimo privilegio.</p>
+    <div class="doc-meta">
+      <div class="meta-item"><strong>Contrato</strong>SA-CT-0336-2026</div>
+      <div class="meta-item"><strong>Proyectos</strong>Proyecto Brasil + Agencia de Marketing IA</div>
+      <div class="meta-item"><strong>Contacto SALUDSA</strong>Nicolás González / Sonia Checa</div>
+      <div class="meta-item"><strong>Responsable SALUDSA</strong>Juan Carlos Fegan</div>
+      <div class="meta-item"><strong>Proveedor</strong>Felipe Rodolfo Salgado Ramos · bksegurosec@gmail.com</div>
+      <div class="meta-item"><strong>Emitido</strong>24 de Junio de 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CONTACTS STRIP ═══════════════════ -->
+<div class="contacts-strip">
+  <div class="contacts-inner">
+    <div class="contact-chip">
+      <span class="role">Contacto Responsable · SALUDSA</span>
+      <span class="name">Juan Carlos Fegan</span>
+      <span class="email">Apoderado / Aprobaciones contractuales</span>
+    </div>
+    <div class="contact-chip">
+      <span class="role">Contacto Ejecución · SALUDSA</span>
+      <span class="name">Nicolás González</span>
+      <span class="email">pgonzalez@saludsa.com.ec</span>
+    </div>
+    <div class="contact-chip">
+      <span class="role">Contacto Ejecución · SALUDSA</span>
+      <span class="name">Sonia Checa</span>
+      <span class="email">scheca@saludsa.com.ec</span>
+    </div>
+    <div class="contact-chip">
+      <span class="role">Proveedor</span>
+      <span class="name">Felipe Salgado</span>
+      <span class="email">bksegurosec@gmail.com · (09) 9979 3094</span>
+    </div>
+    <div class="contract-ref">
+      <div class="num">SA-CT-0336-2026</div>
+      <div class="lbl">Número de Contrato</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<div class="main">
+
+  <!-- Notice -->
+  <div class="notice-box">
+    <strong>🔒 Principio de Mínimo Privilegio — Confidencialidad Activa:</strong> Este checklist solicita únicamente lo estrictamente necesario para la ejecución del objeto del contrato SA-CT-0336-2026. No se solicita información de clientes, datos médicos, datos financieros internos ni accesos a sistemas fuera del alcance contractual. Todo acceso se gestiona mediante tokens/API keys propias del servicio —no contraseñas directas— y conforme al Cláusula 8 del contrato: <em>"SALUDSA brindará el soporte e información necesaria al PROVEEDOR para la correcta ejecución del objeto del contrato."</em>
+  </div>
+
+  <!-- Progress banner -->
+  <div class="progress-banner">
+    <div>
+      <h3>Estado de Arranque</h3>
+      <p>Condiciones previas al inicio de los trabajos técnicos.</p>
+    </div>
+    <div class="progress-pills">
+      <span class="status-pill pending">⏳ Firma Contrato pendiente</span>
+      <span class="status-pill pending">⏳ Anticipo 60% pendiente</span>
+      <span class="status-pill pending">⏳ Garantías pendientes</span>
+      <span class="status-pill wait">🔵 Accesos técnicos pendientes</span>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <h3>Referencias del documento</h3>
+    <div class="legend-items">
+      <div class="legend-item"><div class="priority-dot dot-red"></div> Crítico para arrancar (Día 1)</div>
+      <div class="legend-item"><div class="priority-dot dot-orange"></div> Semana 1 (antes de Fase 1)</div>
+      <div class="legend-item"><div class="priority-dot dot-blue"></div> Semana 2-3 (previo Fase 2)</div>
+      <div class="legend-item"><div class="priority-dot dot-gray"></div> Opcional / se puede diferir</div>
+      <div class="legend-item"><span class="tag required">Requerido</span> Sin esto no se puede iniciar</div>
+      <div class="legend-item"><span class="tag firma">Contractual</span> Obligación expresa en el contrato</div>
+      <div class="legend-item"><span class="tag brasil">Proyecto Brasil</span> Solo Sales Pilot v2</div>
+      <div class="legend-item"><span class="tag marketing">Marketing IA</span> Solo Agencia de Bolsillo</div>
+      <div class="legend-item"><span class="tag both">Ambos</span> Ambos proyectos</div>
+    </div>
+  </div>
+
+  <!-- ═══════════ SECCIÓN A: ADMINISTRATIVO ═══════════ -->
+  <div class="section-block">
+    <div class="section-header admin">
+      <div class="section-icon icon-admin">📝</div>
+      <div class="section-info">
+        <h3>A — Gestión Administrativa y Contractual</h3>
+        <p>Obligaciones previas al inicio, definidas en el contrato. Responsabilidad compartida SALUDSA y Proveedor.</p>
+      </div>
+      <div class="section-count urgent">
+        <div>4 ítems</div>
+        <strong>Crítico</strong>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Firma del Contrato SA-CT-0336-2026 (VidSigner)</h4>
+          <p class="desc">Suscripción electrónica del contrato a través de la plataforma VidSigner por ambas partes. Sin contrato firmado no se entrega ni recibe el anticipo ni se inician trabajos. <strong>Iniciativa de SALUDSA para enviar el documento.</strong></p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Día 0</span>
+            <span class="tag firma">Cláusula de Aceptación</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+          <p class="contract-ref-inline">Ref. Cláusula ACEPTACIÓN del contrato: firma electrónica en VidSigner.</p>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Pago del Anticipo — 60% · USD $28,152.00 (c/IVA)</h4>
+          <p class="desc">El contrato establece que no se puede iniciar la ejecución sin la entrega previa del anticipo <strong>y</strong> de las garantías. El PROVEEDOR emite factura y SALUDSA paga en máximo 30 días desde la aceptación de la factura, conforme a su política de pagos a proveedores. <strong>Iniciativa del PROVEEDOR: emitir factura por el 60% + IVA.</strong></p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Día 0</span>
+            <span class="tag firma">Cláusula Forma de Pago</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+          <p class="contract-ref-inline">Ref. Cláusula FORMA DE PAGO: "No se puede entregar el anticipo ni comenzar sin las garantías."</p>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Garantía de Buen Uso de Anticipo — PROVEEDOR entrega a SALUDSA</h4>
+          <p class="desc">El PROVEEDOR debe entregar al momento de la firma: una garantía bancaria/póliza irrevocable por el <strong>60% del valor del contrato = USD $24,480.00</strong>, vigente durante todo el plazo del contrato + 1 mes adicional. Sin esta garantía, SALUDSA no está obligada a entregar el anticipo.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Día 0</span>
+            <span class="tag firma">Cláusula 10.1</span>
+            <span class="tag legal">Obligación PROVEEDOR</span>
+          </div>
+          <p class="contract-ref-inline">Ref. Cláusula GARANTÍAS 10.1: "No se puede entregar el anticipo sin haber entregado la garantía descrita."</p>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Garantía de Fiel Cumplimiento — PROVEEDOR entrega a SALUDSA</h4>
+          <p class="desc">El PROVEEDOR debe entregar al momento de la firma: una garantía bancaria/póliza irrevocable por el <strong>10% del valor total del contrato = USD $4,080.00</strong>, vigente durante todo el plazo + 1 mes adicional.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Día 0</span>
+            <span class="tag firma">Cláusula 10.2</span>
+            <span class="tag legal">Obligación PROVEEDOR</span>
+          </div>
+          <p class="contract-ref-inline">Ref. Cláusula GARANTÍAS 10.2: garantía fiel cumplimiento = 10% del contrato.</p>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Designación formal del Administrador de Contrato (SALUDSA)</h4>
+          <p class="desc">SALUDSA debe designar formalmente a su administrador del contrato, por quien se canalizarán todas las acciones y notificaciones. Per el contrato: <strong>Contacto Responsable: Juan Carlos Fegan · Contacto de Ejecución: Nicolás González / Sonia Checa</strong>. Se solicita confirmación formal por escrito o correo electrónico de esta designación.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Día 0</span>
+            <span class="tag firma">Cláusula 8 + Cláusula Notificaciones</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Formato de Reporte de Actividades (SALUDSA provee plantilla)</h4>
+          <p class="desc">El contrato obliga al PROVEEDOR a "llenar el reporte de actividades cumplidas de acuerdo con el formato establecido por SALUDSA." Se solicita que SALUDSA entregue el formato/template oficial que debe completar el PROVEEDOR para validar pagos por hitos.</p>
+          <div class="check-tags">
+            <span class="tag firma">Cláusula Obligaciones PROVEEDOR</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+          <p class="contract-ref-inline">Ref. Cláusula OBLIGACIONES DEL PROVEEDOR: "Llenar el reporte de actividades según formato establecido por SALUDSA."</p>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ SECCIÓN B: DOCUMENTOS TÉCNICOS SALUDSA ═══════════ -->
+  <div class="section-block">
+    <div class="section-header tech-docs">
+      <div class="section-icon icon-tech">📐</div>
+      <div class="section-info">
+        <h3>B — Documentos Técnicos y Estándares (SALUDSA entrega)</h3>
+        <p>El contrato obliga al PROVEEDOR a seguir los estándares de SALUDSA. Para hacerlo, SALUDSA debe entregarlos.</p>
+      </div>
+      <div class="section-count important">
+        <div>4 ítems</div>
+        <strong>Sem 1</strong>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Lineamientos, Estándares y Controles de Desarrollo Azure de SALUDSA</h4>
+          <p class="desc">El contrato es explícito: <em>"El desarrollo de la solución va a ser implementada en la nube de Azure bajo los lineamientos, estándares y entregables de desarrollo y seguridad definidos y comunicados por SALUDSA."</em> Se solicita el documento oficial de arquitectura y seguridad Azure de SALUDSA, incluyendo: naming conventions, políticas de red (VNet/NSG), configuración del WAF corporativo existente y estándares de despliegue.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag firma">Obligación Contractual SALUDSA</span>
+            <span class="tag both">Ambos proyectos</span>
+            <span class="tag azure">Azure</span>
+          </div>
+          <p class="contract-ref-inline">Ref. Cláusula PROPIEDAD INTELECTUAL: "bajo los lineamientos, estándares, políticas y controles de desarrollo, arquitectura y seguridad definidos y comunicados por SALUDSA."</p>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Guía de Mejores Prácticas para Desarrollo de Aplicaciones</h4>
+          <p class="desc">El contrato indica: <em>"El PROVEEDOR se obliga y compromete a cumplir con la guía de mejores prácticas para desarrollo de aplicaciones que fue compartida previamente por SALUDSA."</em> Si no fue entregada aún, se solicita formalmente en este momento.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag firma">Cláusula Obligaciones PROVEEDOR</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Documento "Indicadores de Calidad – KPI's" Formal</h4>
+          <p class="desc">El contrato establece multas ($50–$150/día) por incumplimiento de KPI's. El documento formal debe incluir los umbrales exactos (verde/amarillo/rojo) para: Variación en cronograma · Número de bugs en certificación · Reproceso en solución de defectos. Se solicita la versión oficial firmada para anexar al contrato.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag firma">Cláusula INCUMPLIMIENTO Y MULTAS</span>
+            <span class="tag both">Ambos proyectos</span>
+            <span class="tag legal">Con implicaciones de multa</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Anexo 2: Requerimiento de Seguridad para Terceros (firmado)</h4>
+          <p class="desc">El Anexo 2 del contrato es el documento de Seguridad para Terceros de SALUDSA. Se solicita el documento completo con los requerimientos específicos de seguridad que el PROVEEDOR debe cumplir, para incorporarlos a la arquitectura Azure del proyecto desde el inicio.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag firma">Anexo 2 del Contrato</span>
+            <span class="tag both">Ambos proyectos</span>
+            <span class="tag azure">Azure</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ SECCIÓN C: AZURE ═══════════ -->
+  <div class="section-block">
+    <div class="section-header azure">
+      <div class="section-icon icon-azure">☁️</div>
+      <div class="section-info">
+        <h3>C — Infraestructura Azure (ambos proyectos)</h3>
+        <p>El contrato establece que Azure es la plataforma obligatoria. Se necesita coordinación con el equipo IT/Cloud de SALUDSA.</p>
+      </div>
+      <div class="section-count important">
+        <div>4 ítems</div>
+        <strong>Sem 1</strong>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Definición del modelo de suscripción Azure</h4>
+          <p class="desc">Se requiere definir con el equipo IT de SALUDSA uno de estos modelos: <br>
+          <strong>Opción A (recomendada):</strong> SALUDSA crea un Resource Group dedicado en su suscripción Azure y otorga al PROVEEDOR acceso con rol "Contributor" limitado a ese grupo.<br>
+          <strong>Opción B:</strong> El PROVEEDOR crea su propia suscripción Azure bajo los lineamientos de SALUDSA, con conectividad vía VPN site-to-site o ExpressRoute al datacenter de SALUDSA.<br>
+          <em>Solo se necesita el modelo acordado, no credenciales de suscripción principal.</em></p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag azure">Azure</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Punto de contacto IT / Seguridad de SALUDSA para Azure</h4>
+          <p class="desc">Nombre, correo y Slack/Teams del ingeniero de seguridad o cloud de SALUDSA que coordinará: la integración del Azure WAF del proyecto con el WAF corporativo existente, la configuración de políticas de red (VNet/NSG/NSG), y la aprobación de la arquitectura de despliegue.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag azure">Azure · Seguridad</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Naming conventions y región Azure preferida por SALUDSA</h4>
+          <p class="desc">Prefijo de recursos (ej: saludsa-ai-prod-*), región Azure (ej: East US 2, Brazil South), y convención de tags requerida para todos los recursos del proyecto. Necesario para cumplir los estándares de SALUDSA desde el primer recurso creado.</p>
+          <div class="check-tags">
+            <span class="tag azure">Azure</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Autorización para integración con WAF corporativo de SALUDSA</h4>
+          <p class="desc">El Azure WAF del proyecto actúa como segunda capa detrás del WAF corporativo de SALUDSA. Se requiere: confirmación del equipo de seguridad de SALUDSA del esquema de integración y los rangos IP o reglas de firewall necesarias para que los agentes IA puedan comunicarse con APIs externas autorizadas (Claude API, Meta API, HubSpot API, Google Sheets API).<br><em>No se solicita acceso al WAF corporativo, solo autorización de los endpoints de salida del proyecto.</em></p>
+          <div class="check-tags">
+            <span class="tag azure">Azure · WAF</span>
+            <span class="tag both">Ambos proyectos</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ SECCIÓN D: PROYECTO BRASIL ═══════════ -->
+  <div class="section-block">
+    <div class="section-header brasil">
+      <div class="section-icon icon-brasil">🎯</div>
+      <div class="section-info">
+        <h3>D — Proyecto Brasil · Sales Pilot v2 (Lead Intelligence)</h3>
+        <p>Accesos específicos para el Agente Lead Intelligence, WhatsApp Business, HubSpot y Google Sheets.</p>
+      </div>
+      <div class="section-count normal">
+        <div>6 ítems</div>
+        <strong>Sem 1–2</strong>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>WhatsApp Business API — Número oficial verificado de Salud S.A.</h4>
+          <p class="desc">Se requiere el número de teléfono WhatsApp Business verificado que usará el agente de conversión 24/7, o la autorización de Salud S.A. para gestionar el proceso de verificación del número con Meta (si aún no está verificado). <strong>Se accede mediante API key de WhatsApp Business Cloud — no se solicita contraseña del panel.</strong></p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag brasil">Proyecto Brasil</span>
+          </div>
+          <p class="contract-ref-inline">Solo acceso vía Meta Cloud API token. El número y la cuenta permanecen bajo control de SALUDSA.</p>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>HubSpot CRM — API Key (Private App Token) o invitación como usuario técnico</h4>
+          <p class="desc">Para la integración bidireccional HubSpot ↔ Agentes IA, se requiere uno de estos mecanismos: <br>
+          <strong>Opción A (recomendada):</strong> SALUDSA crea una "Private App" en HubSpot con permisos limitados a: contactos (read/write), deals (read/write), engagements (write). El token de esta app se entrega al PROVEEDOR.<br>
+          <strong>Opción B:</strong> Invitación al PROVEEDOR como usuario técnico con rol limitado.<br>
+          <em>No se solicita contraseña de cuenta de administrador. El portal HubSpot permanece bajo control exclusivo de SALUDSA.</em></p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag brasil">Proyecto Brasil</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Google Workspace — Service Account con acceso a Google Sheets</h4>
+          <p class="desc">Para el Google Sheets de trazabilidad (Entregable E1.7), se requiere: SALUDSA crea un Google Sheet en su Google Workspace y comparte el acceso de editor con una Service Account de Google que el PROVEEDOR creará para el proyecto. <strong>No se solicita acceso a otros documentos ni al Google Workspace general de SALUDSA.</strong> Solo el Sheets específico del proyecto.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag brasil">Proyecto Brasil</span>
+          </div>
+          <p class="contract-ref-inline">El Sheet permanece en el Google Workspace de SALUDSA. La Service Account solo tiene acceso a ese documento.</p>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Dataset de prueba — 20 a 50 leads anonimizados para integración</h4>
+          <p class="desc">Para desarrollar y testear el flujo de Lead Intelligence sin usar datos reales de clientes, se solicita un CSV de <strong>20 a 50 registros anonimizados</strong> (nombres ficticios, sin cédula, sin datos sensibles), con la estructura de campos que maneja SALUDSA en su base de leads: nombre, empresa, tipo de interés, canal de origen, estado actual. <strong>Sin datos reales de clientes — solo estructura.</strong></p>
+          <div class="check-tags">
+            <span class="tag brasil">Proyecto Brasil</span>
+          </div>
+          <p class="contract-ref-inline">Esto acelera las pruebas sin violar privacidad. No se solicita base de datos real de clientes.</p>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Descripción del proceso y etapas del pipeline de ventas actual</h4>
+          <p class="desc">Para configurar el pipeline en HubSpot y los flujos del agente, se requiere la descripción del proceso comercial actual de SALUDSA: etapas del proceso de venta (ej: Nuevo contacto → Calificado → Propuesta enviada → Cierre) y criterios para pasar de una etapa a otra. <strong>No se solicita información de clientes reales ni historial de ventas.</strong></p>
+          <div class="check-tags">
+            <span class="tag brasil">Proyecto Brasil</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Plantilla o formato de propuesta comercial vigente de Salud S.A.</h4>
+          <p class="desc">Para el Motor de Hiperpersonalización (E1.3 — landing pages personalizadas), se requiere la plantilla visual o PDF de propuesta comercial que actualmente usa SALUDSA: estructura de contenidos, elementos de marca, información de planes incluida. El PROVEEDOR la usa como guía de diseño. <strong>Solo el formato/template, sin datos de clientes.</strong></p>
+          <div class="check-tags">
+            <span class="tag brasil">Proyecto Brasil</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-blue"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ SECCIÓN E: PROYECTO MARKETING ═══════════ -->
+  <div class="section-block">
+    <div class="section-header marketing">
+      <div class="section-icon icon-marketing">📱</div>
+      <div class="section-info">
+        <h3>E — Agencia de Marketing IA · Pep &amp; Zizu (Proyecto Marketing)</h3>
+        <p>Accesos específicos para los agentes Meta Ads, Telegram y el sistema de creatividades automatizadas.</p>
+      </div>
+      <div class="section-count normal">
+        <div>5 ítems</div>
+        <strong>Sem 1–2</strong>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Meta Business Manager — Invitación como "Anunciante" a la cuenta de Salud S.A.</h4>
+          <p class="desc">Para que los agentes Pep y Zizu puedan crear y gestionar campañas en Meta Ads, se solicita que SALUDSA invite al PROVEEDOR con rol de <strong>"Anunciante" (no Administrador)</strong> a la cuenta de Business Manager de Salud S.A. Este rol permite crear/gestionar campañas en cuentas publicitarias asignadas, sin acceso a configuraciones, métodos de pago ni datos de otras cuentas.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag marketing">Marketing IA</span>
+          </div>
+          <p class="contract-ref-inline">El rol "Anunciante" en Meta Business Manager otorga acceso mínimo para la gestión de campañas. El método de pago y la configuración de la cuenta permanecen bajo control de SALUDSA.</p>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>ID de la cuenta publicitaria Meta Ads a utilizar en el proyecto</h4>
+          <p class="desc">Se requiere el <strong>Ad Account ID</strong> de la cuenta de Meta Ads de Salud S.A. que será utilizada para las campañas del piloto. Si Salud S.A. tiene múltiples cuentas, se necesita la designada para este proyecto. El ID es un número de 15 dígitos visible en el panel de Business Manager.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag marketing">Marketing IA</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-red"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Brand Guidelines de Salud S.A. — Logo, paleta, tipografía, tono</h4>
+          <p class="desc">Para el fine-tuning del agente Zizu (creatividades) y garantizar que todas las campañas estén alineadas con la identidad visual de Salud S.A. Se requiere: logotipo en SVG o PNG transparente, paleta de colores oficial (códigos hex), tipografías autorizadas, tono y estilo de comunicación, y ejemplos de campañas anteriores aprobadas (opcional pero valorado).</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 1</span>
+            <span class="tag marketing">Marketing IA</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Catálogo de productos y planes vigentes con descripción y beneficios</h4>
+          <p class="desc">Para el fine-tuning de los agentes Pep y Zizu con información real de Salud S.A. Se requiere: lista de planes disponibles (nombres, beneficios principales, coberturas, rangos de precios referenciales). <strong>Sin datos de clientes ni de asegurados.</strong> Solo información de producto que ya es pública o comercialmente disponible.</p>
+          <div class="check-tags">
+            <span class="tag required">Requerido · Sem 2</span>
+            <span class="tag marketing">Marketing IA</span>
+          </div>
+        </div>
+        <div class="priority-dot dot-orange"></div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box" onclick="toggle(this)"></div>
+        <div class="check-content">
+          <h4>Listado del grupo piloto — 15 RNs (nombre + canal contacto)</h4>
+          <p class="desc">Para el piloto del bot Telegram (Entregable E2.8), se solicita el nombre y número de Telegram o WhatsApp de los 15 Representantes de Negocios seleccionados para el grupo piloto. Este listado es requerido para configurar el acceso al bot. <strong>Solo nombre + número de contacto — sin información de sus clientes ni resultados de ventas.</strong></p>
+          <div class="check-tags">
+            <span class="tag marketing">Marketing IA</span>
+          </div>
+          <p class="contract-ref-inline">Entregable E2.8: Piloto 15 RNs. La selección de los RNs es responsabilidad de SALUDSA.</p>
+        </div>
+        <div class="priority-dot dot-blue"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ SECCIÓN F: NO SOLICITAR ═══════════ -->
+  <div class="section-block">
+    <div class="section-header restrictions">
+      <div class="section-icon icon-restrict">🚫</div>
+      <div class="section-info">
+        <h3>F — No Se Solicita · Restricciones de Confidencialidad</h3>
+        <p>Lista explícita de lo que el PROVEEDOR no solicita y no requiere para la ejecución del contrato. Para protección mutua.</p>
+      </div>
+      <div class="section-count">
+        <div>8 ítems</div>
+        <strong>Explícito</strong>
+      </div>
+    </div>
+    <div class="section-body" style="background:#fffbfb;">
+
+      <div class="restrict-item">
+        <div class="restrict-icon">✗</div>
+        <div>
+          <h4>Base de datos de clientes, asegurados o prospectos reales</h4>
+          <p>No se requiere acceso a la base de datos de clientes de Salud S.A. para desarrollar los agentes. Se usarán datos anonimizados/ficticios para pruebas. Los agentes accederán a datos solo a través de HubSpot API con el mínimo permiso requerido.</p>
+        </div>
+      </div>
+
+      <div class="restrict-item">
+        <div class="restrict-icon">✗</div>
+        <div>
+          <h4>Contraseñas o credenciales de cuentas de usuario directas</h4>
+          <p>Todas las integraciones se realizan mediante tokens de API, OAuth 2.0 o Service Accounts — mecanismos diseñados para acceso programático seguro sin contraseñas. Nunca se solicitan contraseñas de personas.</p>
+        </div>
+      </div>
+
+      <div class="restrict-item">
+        <div class="restrict-icon">✗</div>
+        <div>
+          <h4>Acceso a sistemas internos de gestión de pólizas o reclamaciones</h4>
+          <p>Los agentes operan exclusivamente en el ciclo comercial (ventas y marketing). No se solicita ni se necesita acceso a sistemas de core insurance, gestión de pólizas, reclamaciones médicas ni sistemas administrativos de SALUDSA.</p>
+        </div>
+      </div>
+
+      <div class="restrict-item">
+        <div class="restrict-icon">✗</div>
+        <div>
+          <h4>Información médica o de salud de asegurados</h4>
+          <p>En ningún caso el proyecto involucra datos de salud o médicos de ninguna persona. Esto está explícitamente fuera del alcance contractual y sería una violación de la LOPDP.</p>
+        </div>
+      </div>
+
+      <div class="restrict-item">
+        <div class="restrict-icon">✗</div>
+        <div>
+          <h4>Estados financieros, presupuestos o datos contables internos de SALUDSA</h4>
+          <p>No son necesarios para el desarrollo de los agentes. Los únicos datos económicos que se manejan son los de campañas de Meta Ads (presupuesto de pauta) que SALUDSA define directamente en su cuenta de Meta Business Manager.</p>
+        </div>
+      </div>
+
+      <div class="restrict-item">
+        <div class="restrict-icon">✗</div>
+        <div>
+          <h4>Acceso de Administrador a ninguna plataforma (Meta, HubSpot, Google)</h4>
+          <p>Se solicita solo el rol mínimo requerido: Anunciante en Meta, usuario con permisos limitados en HubSpot, y editor del Sheets específico en Google. Roles de administrador no son necesarios y no se solicitan.</p>
+        </div>
+      </div>
+
+      <div class="restrict-item">
+        <div class="restrict-icon">✗</div>
+        <div>
+          <h4>Acceso a la red interna o VPN corporativa de SALUDSA</h4>
+          <p>El proyecto opera en una DMZ agéntica en Azure, separada de la red corporativa. La conectividad se establece mediante reglas de firewall específicas para los endpoints autorizados, no mediante acceso general a la VPN.</p>
+        </div>
+      </div>
+
+      <div class="restrict-item">
+        <div class="restrict-icon">✗</div>
+        <div>
+          <h4>Información de empleados, nómina o RRHH de SALUDSA</h4>
+          <p>El único dato de RNs que se solicita es el nombre y número de contacto de los 15 del grupo piloto, única y exclusivamente para configurar el acceso al bot Telegram del Proyecto Marketing. No se solicita ni se requiere ningún otro dato de empleados.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════ TIMELINE DE ENTREGA ═══════════ -->
+  <div class="timeline-box">
+    <h3>⏱️ Secuencia sugerida de entrega de accesos</h3>
+    <div class="timeline-steps">
+      <div class="t-step">
+        <div class="t-num">1</div>
+        <div>
+          <h4>Día 0 — Firma y condiciones previas (sección A)</h4>
+          <p>Firma del contrato en VidSigner · Entrega de garantías (PROVEEDOR) · Confirmación de contactos · Anticipo</p>
+        </div>
+      </div>
+      <div class="t-step">
+        <div class="t-num">2</div>
+        <div>
+          <h4>Semana 1 — Documentos técnicos y Azure (secciones B + C)</h4>
+          <p>Lineamientos Azure de SALUDSA · Guía de mejores prácticas · KPIs · Anexo 2 · Definición modelo Azure · Contacto IT/Seguridad</p>
+        </div>
+      </div>
+      <div class="t-step">
+        <div class="t-num">3</div>
+        <div>
+          <h4>Semana 1-2 — Accesos plataformas (secciones D + E)</h4>
+          <p>WhatsApp Business token · HubSpot Private App token · Google Sheets compartido · Meta Business Manager invitación · Brand guidelines · Catálogo de productos</p>
+        </div>
+      </div>
+      <div class="t-step">
+        <div class="t-num">4</div>
+        <div>
+          <h4>Semana 3 — Complementarios</h4>
+          <p>Dataset de prueba anonimizado · Proceso de ventas descrito · Listado 15 RNs piloto · Plantilla propuesta comercial</p>
+        </div>
+      </div>
+      <div class="t-step">
+        <div class="t-num">✓</div>
+        <div>
+          <h4>Inicio de Fase 1 de Implementación</h4>
+          <p>Con los ítems críticos (secciones A, B, C y partes de D/E), el PROVEEDOR puede iniciar el setup de la infraestructura Azure y los pipelines base de ambos proyectos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ RESUMEN EJECUTIVO ═══════════ -->
+  <div style="background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px; margin-bottom: 20px;">
+    <h3 style="font-size:0.95rem; font-weight:700; color:#1a2340; margin-bottom:16px;">📊 Resumen de ítems por categoría</h3>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:12px;">
+      <div style="background:#fff3e0; border:1px solid #ffe0b2; border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:900; color:#e65100;">4</div>
+        <div style="font-size:0.75rem; color:#bf360c; font-weight:700; margin-top:2px;">A · Administrativo</div>
+        <div style="font-size:0.7rem; color:#8899aa;">Crítico Día 0</div>
+      </div>
+      <div style="background:#f3e5f5; border:1px solid #e1bee7; border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:900; color:#6a1b9a;">4</div>
+        <div style="font-size:0.75rem; color:#4a148c; font-weight:700; margin-top:2px;">B · Docs. Técnicos</div>
+        <div style="font-size:0.7rem; color:#8899aa;">SALUDSA entrega</div>
+      </div>
+      <div style="background:#e3f2fd; border:1px solid #bbdefb; border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:900; color:#1565c0;">4</div>
+        <div style="font-size:0.75rem; color:#0d47a1; font-weight:700; margin-top:2px;">C · Azure</div>
+        <div style="font-size:0.7rem; color:#8899aa;">Infraestructura</div>
+      </div>
+      <div style="background:#e0f7fa; border:1px solid #b2dfdb; border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:900; color:#00695c;">6</div>
+        <div style="font-size:0.75rem; color:#004d40; font-weight:700; margin-top:2px;">D · Proyecto Brasil</div>
+        <div style="font-size:0.7rem; color:#8899aa;">Sales Pilot v2</div>
+      </div>
+      <div style="background:#fce4ec; border:1px solid #f8bbd0; border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:900; color:#880e4f;">5</div>
+        <div style="font-size:0.75rem; color:#560027; font-weight:700; margin-top:2px;">E · Marketing IA</div>
+        <div style="font-size:0.7rem; color:#8899aa;">Agencia de Bolsillo</div>
+      </div>
+      <div style="background:#ffebee; border:1px solid #ffcdd2; border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:900; color:#b71c1c;">8</div>
+        <div style="font-size:0.75rem; color:#7f0000; font-weight:700; margin-top:2px;">F · No se solicita</div>
+        <div style="font-size:0.7rem; color:#8899aa;">Protección mutua</div>
+      </div>
+    </div>
+    <div style="margin-top:16px; padding:12px 14px; background:#f8fafc; border-radius:8px; font-size:0.78rem; color:#667788; line-height:1.7;">
+      <strong style="color:#1a2340;">Total: 23 ítems de acción</strong> · 8 críticos para el Día 0 · 12 para Semana 1-2 · 3 para Semana 3. Más 8 ítems explícitos de <em>lo que no se solicita</em>, para protección de confidencialidad de ambas partes conforme a la Cláusula de Confidencialidad del contrato SA-CT-0336-2026.
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="doc-footer">
+  <p>
+    <strong>Contrato SA-CT-0336-2026 · SALUDSA × Felipe Rodolfo Salgado Ramos</strong><br>
+    Elaborado: 24 de Junio de 2026 · bksegurosec@gmail.com · (09) 9979 3094<br>
+    Este documento es de uso exclusivo de las partes firmantes del contrato. Información confidencial conforme a la Cláusula de Confidencialidad del contrato.<br>
+    Los accesos solicitados en este documento se enmarcan estrictamente en el artículo 8 del contrato: <em>"SALUDSA brindará el soporte e información necesaria al PROVEEDOR para la correcta ejecución del objeto del contrato."</em>
+  </p>
+</div>
+
+<script>
+function toggle(el) {
+  if (el.style.background === 'rgb(0, 120, 212)') {
+    el.style.background = 'white';
+    el.style.borderColor = '#d0d8e8';
+    el.innerHTML = '';
+    el.closest('.check-item').style.opacity = '1';
+  } else {
+    el.style.background = '#0078d4';
+    el.style.borderColor = '#0078d4';
+    el.innerHTML = '<svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    el.closest('.check-item').style.opacity = '0.6';
+  }
+}
+</script>
+
+</body>
+</html>
